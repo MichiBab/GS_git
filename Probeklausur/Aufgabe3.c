@@ -40,7 +40,7 @@ int rom_A3(){
         }
         
     }
-    printf("0x%llx\n",ROM_NO);
+    printf("0x%lx\n",ROM_NO);
     printf("BYTECOUNT: %d\n",bytecount);
     printf("BITCOUNT: %d\n",bitcount);
     return 0;
