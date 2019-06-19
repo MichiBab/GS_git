@@ -1,5 +1,6 @@
 #include <stdint.h>
-#include <stdio.h>int 
+#include <stdio.h>
+#include <stdlib.h>
 
 
 stringOp(char* s);
