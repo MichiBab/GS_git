@@ -25,6 +25,8 @@ int rom_A3(){
     
     for(int i = 0; i < size;i++){
         uint8_t temp = BYTES[i];
+	//MIT uint8_t temp = BYTES[size-1-i]; 
+        //hat es die selbe reihenfolge wie BYTES[]
         bytecount++;
         for(int y = 0; y < size;y++){
             mask = 0;
