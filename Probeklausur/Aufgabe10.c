@@ -12,9 +12,9 @@ static int isUMLAUT(char c);
 
 
 int main(int argc, char **argv){
-  char Quellstring[]="Jubel auf alen Aleen bei alen Leuten, die ales erleben wolen";
-  stringOp(Quellstring);
-	return 0;
+    char Quellstring[]="Jubel auf alen Aleen bei alen Leuten, die ales erleben wolen";
+    stringOp(Quellstring);
+    return 0;
 }
 
 
@@ -65,4 +65,4 @@ int stringOp(char* s){
     
 static int isUMLAUT(char c){
     return (c =='a' | c =='e' | c =='i' | c =='o' | c =='u' | c =='A' | c =='E' | c =='I' | c =='O' | c =='U') ;
-    }
+}
