@@ -2,22 +2,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 stringOp(char* s);
 static int isUMLAUT(char c);
 
 uint32_t LEcounter = 0;
 static int isUMLAUT(char c);
 
-
-
 int main(int argc, char **argv){
     char Quellstring[]="Jubel auf alen Aleen bei alen Leuten, die ales erleben wolen";
     stringOp(Quellstring);
     return 0;
 }
-
-
 
 int stringOp(char* s){
     //stringlänge:
