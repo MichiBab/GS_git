@@ -8,12 +8,9 @@ uint8_t CRCMASK = 0x50;  //0101 0000
 int crcCheck(uint8_t wert);
 
 int aufgabe4(){
-	
 
-	for(int i = 0; i<7;i++){
-	
+	for(int i = 0; i<7;i++){	
 		crcCheck(BYTES[7-i]);
-	
 	}
 	
 	return 0;
