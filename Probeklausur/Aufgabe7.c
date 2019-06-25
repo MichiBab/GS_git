@@ -1,4 +1,3 @@
-#include "aufgaben extern.h"
 #include <stdio.h>
 #include <stdint.h>
 
@@ -14,7 +13,7 @@ int8_t stateS4(int8_t BK, int8_t S7, int8_t* qsPtr, int8_t* Yptr);
 int8_t stateS5(int8_t BK, int8_t S7, int8_t* qsPtr, int8_t* Yptr);
 int8_t stateS6(int8_t BK, int8_t S7, int8_t* qsPtr, int8_t* Yptr);
 int8_t (*State[])(int8_t,int8_t, int8_t*, int8_t*)= {stateSE,stateS0,stateS1,stateS2,stateS3,stateS4,stateS5,stateS6};
-
+int aufgabe7();
 
 int8_t STATEPOINTER = 0;
 static int setS7(uint8_t* S7ptr);
