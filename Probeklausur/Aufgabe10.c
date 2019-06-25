@@ -33,7 +33,7 @@ int stringOp(char* s){
         }
     }
     //Create Ziel Array:
-    char* Zielstring = malloc(sizeof(char)*(size+LEcounter));
+    char* Zielstring = malloc(sizeof(char)*(size+LEcounter+1));
     if(Zielstring == NULL){
         return -1;
         }
@@ -53,6 +53,7 @@ int stringOp(char* s){
         Zielstring[zIndex] = s[i];
         zIndex++;
     }
+    Zielstring[size+LEcounter] = '\0';
     printf("%d\n", LEcounter);
     printf("%s\n", Zielstring);
     return 0;
@@ -66,4 +67,4 @@ static int isUMLAUT(char c){
     ((c =='E') | (c =='I')) | 
     ((c =='O') | (c =='U'))
     ) ;
-    }
+}
