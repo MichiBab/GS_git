@@ -15,7 +15,7 @@ uint8_t arrayinit(float *sinus); //füllt sinus
 float sinusDACready[arraysize]; //für dac geupscaled
 
 uint8_t ARRAYFLAG = 0; //ARRAYFLAG, damit main die werte errechnet
-uint8_t functionY(float wert); //die mittlerungsfunktion
+uint8_t functionY(); //die mittlerungsfunktion
 float* bufferedArray; //buffer array
 uint8_t bufferedPointer = 0; //bis 16
 float erg = 0; //zur ausgabe; entspricht y(n)
@@ -27,10 +27,9 @@ uint8_t aufgabe8(){
 	for(int i = 0; i<arraysize;i++){ //Upgescaled
 		sinusDACready[i] = (sinus[i]+1) * 2047; //damit dac bis 4095 läuft(12 bit) 
 		//und +1 damit positiv. MAX sinus ist 1; +1 => 2 => 2*2047 =4094
-	}
-	
+	}	
 	timerinit2();
-
+	
 	//CONFIG
 	bufferedArray = (float*) malloc(sizeof(float)*16);
 	if(bufferedArray == NULL){
@@ -41,14 +40,14 @@ uint8_t aufgabe8(){
 	//loop for the interrupts
 		if(ARRAYFLAG){ //warte bis interrupt freigibt
 		
-			functionY(sinus[n]);		
+			functionY();		
 			ARRAYFLAG=0;
 			
 		}		
 	}
 }
 
-uint8_t functionY(float wert){
+uint8_t functionY(){
 	erg = 0;
 	
 	for(int i = 0; i<M;i++){
