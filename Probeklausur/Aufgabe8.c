@@ -35,7 +35,7 @@ uint8_t aufgabe8(){
 	if(bufferedArray == NULL){
 		return -1;
 	}
-	
+
 	while(1){
 	//loop for the interrupts
 		if(ARRAYFLAG){ //warte bis interrupt freigibt
