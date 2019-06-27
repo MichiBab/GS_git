@@ -3,23 +3,23 @@
 #include <math.h>
 #include <stdlib.h>
 #define N 15
-#define M (N+1)
+#define M 16
 #define frequenz 300 //100 oder 500 oder 1000
 //BEI 100: fast das selbe wie sinus, kaum gedämpft; 
 //500: eine kurve dann genullt; 1000: auch genullt; bei 300 leicht gedämpft
 #define arraysize (8000/frequenz)
 
-uint8_t n = 0;
-uint8_t timerinit2();
-uint8_t arrayinit(float *sinus);
-float sinusDACready[arraysize];
+uint8_t n = 0; //array index
+uint8_t timerinit2(); 
+uint8_t arrayinit(float *sinus); //füllt sinus
+float sinusDACready[arraysize]; //für dac geupscaled
 
-uint8_t ARRAYFLAG = 0;
-uint8_t functionY(float wert);
-float* bufferedArray;
-uint8_t bufferedPointer = 0;
-float erg = 0;
-float sinus[arraysize];
+uint8_t ARRAYFLAG = 0; //ARRAYFLAG, damit main die werte errechnet
+uint8_t functionY(float wert); //die mittlerungsfunktion
+float* bufferedArray; //buffer array
+uint8_t bufferedPointer = 0; //bis 16
+float erg = 0; //zur ausgabe; entspricht y(n)
+float sinus[arraysize]; //sinus array
 
 uint8_t aufgabe8(){
 	arrayinit(sinus);
@@ -39,7 +39,7 @@ uint8_t aufgabe8(){
 	
 	while(1){
 	//loop for the interrupts
-		if(ARRAYFLAG){
+		if(ARRAYFLAG){ //warte bis interrupt freigibt
 		
 			functionY(sinus[n]);		
 			ARRAYFLAG=0;
@@ -93,8 +93,6 @@ void TIM2_IRQHandler(){
 	n++;
 	n= n%arraysize;
 	bufferedPointer++;
-	if(bufferedPointer >= 16){
-		bufferedPointer=0;
-	}
-	ARRAYFLAG=1;
+	bufferedPointer = bufferedPointer%M;
+	ARRAYFLAG=1; //freigabe für main, damit sie arbeiten darf
 }
